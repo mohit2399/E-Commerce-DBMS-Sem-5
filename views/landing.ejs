@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+</head>
+
+<style>
+  *{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ font-family:sans-serif;
+
+ }
+ body
+ {
+     width:100%;
+     height:100vh;
+     background-color:#1a52f9;
+     background-image:linear-gradient(19deg,#1a52f9 0%,#B721FF 84%);
+     position: relative;
+     border-radius: 50%;
+
+ }
+ nav{
+     width:100%;
+     height:15vh;
+     display:flex;
+     justify-content: space-around;
+     align-items: center;
+     position:absolute;
+    
+ }
+ .logo a
+ {
+     color:white;
+     text-decoration: none;
+     font-size: 2.2rem;
+     text-transform: uppercase;
+
+
+ }
+
+ .contact a 
+ {
+    text-decoration: none;
+    color:white;
+    text-transform:capitalize;
+    background-color:#d465ef;
+    padding:12px 26px;
+    font-style: 14px;
+    font-weight: 500;
+    border:1px solid transparent;
+
+ }
+ .active,ul li :hover
+ {
+     border-top:2px solid #5dade2;
+     border-bottom:2px solid #5dade2;
+ }
+ .contact a:hover
+ {
+     background:linear-gradient(to bottom,#615cfd 0%,#d465ef 100%);
+
+ }
+ .cart
+ {
+    margin-left:2%;
+ }
+ 
+ .center
+ {  
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    text-align: center;
+ }
+ .center h1{
+     font-size: 70px;
+     font-weight: 700;
+     text-transform: capitalize;
+     color:#fff;
+     margin-bottom: 10px;
+     z-index:1;
+ }
+ .center h2{
+    font-size: 25px;
+    font-weight: 400;
+    text-transform: capitalize;
+    justify-content: center;
+    color:#fff;
+    z-index:1;
+}
+body:before{
+    content:"";
+    width:520px;
+    height:550px;
+    position: absolute;
+    top:10%;
+    left:0;
+    right:0;
+    /*background-image: url("virat.png");*/
+    border-radius: 50%;
+    background-size: 100% 100%;
+}
+.social
+{
+    width:100px;
+    height:auto;
+    position: absolute;
+    right:0;
+    top:40%;
+}
+.fa_icons,.cart
+{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:linear-gradient(to bottom,#615cfd 0%,#d465ef 100%);
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.fa_icons:nth-child(even)
+{
+    margin:20px 0;
+}
+.fa_icons:hover{
+    background:linear-gradient(to bottom,#d465ef 0%,#615cfd 100%);
+    position: relative;
+}
+.cart:hover{
+    background:linear-gradient(to bottom,#d465ef 0%,#615cfd 100%);
+    position: relative;
+}
+   
+
+.btnRegister
+{
+    height:40px;
+    font-size:20px;
+}
+textarea
+{
+    font-size:17px;
+}
+.country
+{
+    font-size: 17px;;
+}
+.map
+{
+    z-index: 1;
+}
+.main-div{
+    width:100%;height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.center-div{
+    width:90%;
+    height:80vh;
+    background:-webkit-linear-gradient(left,#5DADE2,#00c6ff);
+    padding:20px 0 0 0;
+    box-shadow:0 10px 20px 0 rgba(0,0,0,.03);
+    border-radius:10px;
+}
+
+
+</style>
+
+<body>
+    <nav class="navbar">
+         <div class="logo">
+             <a href="/products">MY Shop</a>
+         </div>
+         
+         <div class="contact">
+             <a href="/signup">Sign Up</a>
+               <a href="/signin">Log In</a>
+         </div>
+
+       
+
+    </nav>
+    <div class="center">
+        <h1>Shopping Everyting</h1>
+        <h2>Here</h2>
+    </div>
+    <div class="social">
+          <div class="fa_icons">
+              <a href="#">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+          </div>
+          <div class="fa_icons">
+            <a href="#">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="fa_icons">
+            <a href="#">
+              <i class="fa fa-youtube" aria-hidden="true"></i>
+            </a>
+        </div>
+        
+        <div class="fa_icons">
+            <a href="#">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<html>
+
+<head>
+	<title>Product Section</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+		crossorigin="anonymous"></script>
+	<style>
+		.container {
+			width: 100%;
+			margin-top: 2.5%;
+			font-family: sans-serif;
+			letter-spacing: 1px;
+		}
+
+		.container h2 {
+			background: #0062cc;
+			color: #fff;
+			width: 200px;
+			font-size: 24px;
+			padding: 5px;
+			height: 40px;
+		}
+
+		.container h2::after {
+			content: '';
+			border-top: 40px solid #0062cc;
+			border-right: 40px solid transparent;
+			position: relative;
+			left: 48px;
+			top: 34px;
+		}
+
+		.row {
+			margin-top: 30px;
+		}
+
+		img {
+			width: 100%;
+		}
+
+		.product-bottom .fa {
+			color: #28a745;
+			font-size: 10px;
+		}
+
+		.product-bottom h3 {
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		.product-bottom h5 {
+			font-size: 15px;
+			padding-bottom: 10px;
+		}
+
+		.overlay {
+			display: block;
+			opacity: 0;
+			position: absolute;
+			top: 10%;
+			margin-left: 0;
+			width: 70px;
+		}
+
+		.product-top:hover .overlay {
+			opacity: 1;
+			margin-left: 5%;
+			transition: 0.5sec;
+		}
+
+		.overlay .fa {
+			cursor: pointer;
+			background-color: #fff;
+			color: #000;
+			height: 35px;
+			width: 35px;
+			font-size: 20px;
+			padding: 7px;
+			margin: 5%;
+			margin-bottom: 5%;
+			margin-bottom: 5%;
+		}
+
+		.overlay .btn-secondary {
+			background: transparent ! important;
+			border: none !important;
+			box-shadow: none !important;
+
+		}
+
+		.AddCart {
+			display: flex;
+			justify-content: center;
+		}
+
+		.product-top {
+			width: 10rem;
+			height: 10rem;
+			margin: auto;
+			margin-bottom: 1rem;
+		}
+		.dropdown{
+			margin-top: 1rem;
+			margin-left: 2rem;
+		}
+		.image{
+			width: 10rem;
+			height: 10rem;
+			object-fit: cover;
+			border-radius: 1rem;
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-light bg-dark">
+		<a class="navbar-brand text-light" href="/products">My Shop</a>
+		<a class="navbar-brand text-light" href="/cart">Cart</a>
+	</nav>
+	<div class="dropdown">
+		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+			aria-haspopup="true" aria-expanded="false">
+			Sort Criteria
+		</button>
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<a class="dropdown-item" href="/products/PRICE_ASC">Price Ascending</a>
+			<a class="dropdown-item" href="/products/PRICE_DESC">Price Descending</a>
+			<a class="dropdown-item" href="/products/RATING">Rating High to Low</a>
+		</div>
+	</div>
+	<div class="container">
+
+		<div class="row">
+			<% for(let i=0;i<products.length;i++) { %>
+			<div class="col-md-3">
+				<div class="product-top">
+					<img class="image" src=<%= products[i].productURL %>>
+				</div>
+				<div class="AddCart">
+					<button type="button" class="btn btn-secondary" title="Add to Cart" onclick="addCart(this)"
+						id=<%= products[i].productId %>>
+						Move to Cart
+					</button>
+				</div>
+				<div class="product-bottom text-center">
+					<% for(let j=0;j<products[i].productRating;j++) {%>
+					<i class="fa fa-star"></i>
+					<% } %>
+					<h3><%= products[i].productName %></h3>
+					<h5>$ <%= products[i].productPrice %></h5>
+
+				</div>
+			</div>
+			<% } %>
+		</div>
+	</div>
+
+	<script>
+		function addCart(event) {
+			let obj = {
+				id: event.id
+			}
+			fetch('http://localhost:8080/addCart', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(obj)
+			}).then(response => {
+				// console.log(response);
+				if (response.redirected)
+					window.location.href = response.url;
+			}).catch(err => {
+				console.log(err);
+			})
+		}
+	</script>
+</body>
+
+</html>

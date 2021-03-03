@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<htnl>
+    <head>
+        <title>Login to your account</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/signin.css">
+    </head>
+    <style>
+        body
+{
+    color:#999;
+    font-family: 'Roboto',sans-serif;
+    background-image: url(back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+.form-control
+{
+   min-height: 41px;
+   box-shadow: none;
+   border-color:#e1e1e1;
+}
+.form-control:focus
+{
+    border-color:#00cb82;
+}
+.form-control,.btn
+{
+    border-radius: 30px;;
+}
+.form-header
+{
+    margin:-30px -30px 20px;
+    padding: 30px 30px 10px;
+    text-align: center;
+    background: #00cb82;
+    border-bottom: 1px sloid #eee;;
+    color:#fff;
+}
+.form-header h2
+{
+    font-size:34px;
+    font-weight: bold;
+    margin:0 0 10px;
+    font-family: 'Pacifico',sans-serif;
+
+}
+.signin-form
+{
+    width:390px;
+    border-radius:15px;
+    padding:30px 0;
+    margin:10rem auto;
+}
+.signin-form form
+{
+    color:#999;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    background: #f0f0f0;
+    box-shadow:0px 2px 2px rgba(0,0,0,3);
+    padding:30px;
+}
+.signin-form .form-group
+{
+    margin-bottom:20px;
+}
+.signin-form label
+{
+    font-weight: normal;
+    font-size: 13px;
+    
+}
+.signin-form .btn
+{
+    font-size:16px;
+    font-weight:bold;
+    background:#00cb82;
+    border:none;
+    min-width:200px;
+
+}
+.signin-form .btn:hover,.signin-form .btn:focus 
+{
+    background:#00b073;
+    outline:none;
+}
+.signin-form a
+{
+    color:#00cb82;
+}
+.signin-form a:hover
+{
+    text-decoration:underline;
+}
+    </style>
+    <body>
+        <div class="signin-form">
+            <form action="/signin" method="POST">
+                <div class="form-header">
+                <h2>Sign In</h2>
+                <p>Login to shoping account</p>
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input class="form-control" name="username"
+                    autocomplete="off" placeholder="something@site.com"
+                    required/>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password"
+                    autocomplete="off" placeholder="Password"
+                    required/>
+                </div>
+                <div class="small">Forgot Password<a href="..//">
+                    Click Here
+                </a>
+                </div>
+                <div class="form-group">
+                    <button type="submit" name="signin" 
+                    class="btn btn-primary btn-block btn-lg"
+                    >LogIn</button>
+                </div>
+             
+
+            </form>
+            <div class="text-center small" style="color:red">Don't have an account
+            <a href="/signup">Create One</a> </div>
+        </div>
+    </body>
+</htnl>
